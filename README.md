@@ -22,7 +22,7 @@ Currently trying `Google's tensorflow word2vec`.
 
 `>>> import tensorflow as tf`
 
-`>>>quit()`
+`>>> quit()`
 
 4. Deactivate virtual environment.
 
