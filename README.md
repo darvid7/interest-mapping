@@ -19,7 +19,9 @@ Currently trying `Google's tensorflow word2vec`.
 3. Verify Tensorflow installed in virtual environment.
 
 `$ python`
+
 `>>> import tensorflow as tf`
+
 `>>>quit()`
 
 4. Deactivate virtual environment.
