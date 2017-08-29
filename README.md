@@ -6,7 +6,7 @@ WIP engine to determine what interests should be mapped to what careers.
 
 Currently trying `Google's tensorflow word2vec`.
 
-Read [this for an explanation](https://github.com/darvid7/interest-engine/Explanation.md).
+Read [this for an explanation](https://github.com/darvid7/interest-engine/blob/wip/Explanation.md).
 
 ## Installation
 
