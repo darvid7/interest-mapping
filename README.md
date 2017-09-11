@@ -9,7 +9,9 @@ For example:
 
 The mapping (embeddings created) dependent highly on your dataset.
 
-This is a wip, at the moment we have a working Word2Vec model :smiley:
+This is a wip, at the moment we have a working Word2Vec model :smiley: :tada:
+
+We have experimented with TensorFlow and gensim and have decided to use gensim because it is easier to implement.
 
 ## Installation
 
@@ -177,4 +179,4 @@ For each (target_word, context_prediction) pair sample.
             Update embeddings to maximise objective function
 ```
 
-[How Word2Vec examples in TensorFlow generate batches and labels]()
+[How Word2Vec examples in TensorFlow generate batches and labels](https://github.com/darvid7/interest-engine/blob/master/Tensorflow_Generate_Batch.md)
