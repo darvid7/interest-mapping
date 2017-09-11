@@ -1,0 +1,8 @@
+pokemon
+yoda
+mace
+lightsabre
+pikachu
+ash
+Jedi
+sith
