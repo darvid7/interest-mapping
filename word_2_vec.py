@@ -5,7 +5,7 @@ import os
 from gensim.models import word2vec
 
 parser = argparse.ArgumentParser(description="Create and query a gensim " \
-                                    "word2vec model."
+                                    "word2vec model.")
 
 # Positional arguments (required).
 parser.add_argument("training_data_file_path", type=str,
