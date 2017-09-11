@@ -4,7 +4,8 @@ import os
 
 from gensim.models import word2vec
 
-parser = argparse.ArgumentParser(description="")
+parser = argparse.ArgumentParser(description="Create and query a gensim " \
+                                    "word2vec model."
 
 # Positional arguments (required).
 parser.add_argument("training_data_file_path", type=str,
@@ -71,7 +72,6 @@ def flatten_sentences_to_words(sentences):
             words.append(word)
     return words
 
-# filename = '../interest-engine/inputs/futureu_coursedata_majors_specs' #'data.json'#'../interest-engine/inputs/futureu_coursedata_majors_specs'
 vocabulary_as_sentences = read_text_data_as_sentences(
                             args.training_data_file_path)
 
