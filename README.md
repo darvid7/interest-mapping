@@ -23,7 +23,11 @@ I recommend setting up a [virtual environment](http://docs.python-guide.org/en/l
 
 ```
 usage: word_2_vec.py [-h] [-s SAVE_MODEL_PATH] [-q QUERY_WORDS_FILE_PATH]
+                     [-v VERBOSE_VOCABULARY] [-mwc MINIMUM_WORD_COUNT]
+                     [-sw SKIP_WINDOW]
                      training_data_file_path
+
+Create and query a gensim word2vec model.
 
 positional arguments:
   training_data_file_path
@@ -36,6 +40,14 @@ optional arguments:
                         ./tmp/gensim_w2v.model
   -q QUERY_WORDS_FILE_PATH, --query_words_file_path QUERY_WORDS_FILE_PATH
                         Path to query words seperated by new line.
+  -v VERBOSE_VOCABULARY, --verbose_vocabulary VERBOSE_VOCABULARY
+                        Path to save vocabulary to so you can see what your
+                        model is being trainned on.
+  -mwc MINIMUM_WORD_COUNT, --minimum_word_count MINIMUM_WORD_COUNT
+                        Minimum number of occurances of word for it to be
+                        counted in model.
+  -sw SKIP_WINDOW, --skip_window SKIP_WINDOW
+                        Number of words either side of target to look.
 ```
 
 For example:

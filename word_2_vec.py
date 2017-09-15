@@ -1,4 +1,5 @@
 import argparse
+import collections
 import gensim
 import os
 
@@ -20,6 +21,20 @@ parser.add_argument("-s", "--save_model_path", type=str,
 parser.add_argument("-q", "--query_words_file_path", type=str,
                     help="Path to query words seperated by new line.",
                     default=None)
+
+parser.add_argument("-v", "--verbose_vocabulary", type=str,
+                    help="Path to save vocabulary to so you can see what your \
+                    model is being trainned on.",
+                    default=None)
+
+parser.add_argument("-mwc", "--minimum_word_count", type=int,
+                    help="Minimum number of occurances of word for it to be \
+                    counted in model.",
+                    default=4)
+
+parser.add_argument("-sw", "--skip_window", type=int,
+                    help="Number of words either side of target to look.",
+                    default=5)
 
 args = parser.parse_args()
 
@@ -78,7 +93,17 @@ vocabulary_as_sentences = read_text_data_as_sentences(
 # Can remove to save time and space.
 vocabulary = flatten_sentences_to_words(vocabulary_as_sentences)
 print("Total number of words: " + str(len(vocabulary)))
-print("Number of unique words: {0}".format(len(set(vocabulary))))
+unique_words = len(set(vocabulary))
+print("Number of unique words: {0}".format(unique_words))
+
+if args.verbose_vocabulary:
+    if not os.path.isdir(os.path.dirname(args.verbose_vocabulary)):
+        os.mkdir(os.path.dirname(args.verbose_vocabulary))
+    with open(args.verbose_vocabulary, "w") as fh:
+        fh.write(str(vocabulary))
+    with open(args.verbose_vocabulary + "_count", "w") as fh:
+        fh.write(str(collections.Counter(vocabulary).most_common(unique_words)))
+
 del vocabulary
 
 print("Training model")
@@ -86,9 +111,9 @@ print("Training model")
 # Note: sentences can be an iterator (use yeild).
 model = gensim.models.Word2Vec(
     sentences=vocabulary_as_sentences,
-    min_count=4,  # Min frequency needed to count word.
+    min_count=args.minimum_word_count,  # Min frequency needed to count word.
     workers=6,  # Threads.
-    window=5,   # Window of words to left and right to consider.
+    window=args.skip_window,   # Window of words to left and right to consider.
     sg=1  # Use Skip-Gram not Continous Bag of Words.
 )
 
